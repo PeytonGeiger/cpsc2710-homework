@@ -1,10 +1,11 @@
 class Book:
-    def __init__(self, title, finished=False):
+    def __init__(self, title, status="to read"):
         self.title = title
-        self.finished = finished
+        self.status = status
 
-    def mark_finished(self):
-        self.finished = True
+    def update_status(self, new_status):
+        self.status = new_status
+
 
 class ReadingTracker:
     def __init__(self):
@@ -18,12 +19,18 @@ class ReadingTracker:
     def is_empty(self):
         return len(self.books) == 0
 
-    def mark_book_finished(self, index):
+    def update_book_status(self, index, new_status):
         if 0 <= index < len(self.books):
-            self.books[index].mark_finished()
+            self.books[index].update_status(new_status)
             return self.books[index]
         return None
 
+    def get_status_counts(self):
+        counts = {"to read": 0, "reading": 0, "finished": 0}
+        for book in self.books:
+            if book.status in counts:
+                counts[book.status] += 1
+        return counts
 # For the main program, start with this code: 
 
 # print("Reading Tracker\n")

@@ -8,7 +8,7 @@ def main():
     while True:
         print("1. Add a book\n" +
               "2. List books\n" +
-              "3. Mark a book as finished\n" +
+              "3. Update a book's status\n" +
               "4. Quit")
         
         option = input("Choose an option: ")
@@ -16,7 +16,7 @@ def main():
         if option == "1":
             title = input("Book title: ")
             tracker.add_book(title)
-            print(f'Added "{title}".\n')
+            print(f'Added "{title}" with status: to read.\n')
 
         elif option == "2":
             if tracker.is_empty():
@@ -24,17 +24,23 @@ def main():
             else:
                 print("\nReading list")
                 for i, book in enumerate(tracker.books, start=1):
-                    status = "finished" if book.finished else "not finished"
-                    print(f'{i}. {book.title} — {status}')
+                    print(f'{i}. {book.title} — {book.status}')
                 print()
+
+                counts = tracker.get_status_counts()
+                print("Status summary")
+                print(f"to read: {counts['to read']}")
+                print(f"reading: {counts['reading']}")
+                print(f"finished: {counts['finished']}\n")
 
         elif option == "3":
             user_input = input("Book number: ")
             if user_input.isnumeric():
                 index = int(user_input) - 1
-                updated_book = tracker.mark_book_finished(index)
-                if updated_book:
-                    print(f'Marked "{updated_book.title}" as finished.\n')
+                if 0 <= index < len(tracker.books):
+                    new_status = input("New status (to read, reading, finished): ").strip().lower()
+                    updated_book = tracker.update_book_status(index, new_status)
+                    print(f'Updated "{updated_book.title}" to {new_status}.\n')
                 else:
                     print("Invalid book number.\n")
             else:
