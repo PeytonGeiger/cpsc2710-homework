@@ -1,14 +1,5 @@
 import sys
-from PySide6.QtWidgets import (
-    QApplication,
-    QWidget,
-    QVBoxLayout,
-    QFormLayout,
-    QLabel,
-    QLineEdit,
-    QComboBox,
-    QCheckBox,
-)
+from PySide6.QtWidgets import *
 
 
 class BudgetCategoryPanel(QWidget):
@@ -61,7 +52,6 @@ def main():
 
     window.show()
     sys.exit(app.exec())
-
 
 if __name__ == "__main__":
     main()

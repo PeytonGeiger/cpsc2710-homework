@@ -14,6 +14,7 @@ dependencies = [
 [project.scripts]
 m2-budget-planner = "budget_planner:main"
 single-panel = "budget_planner.budget_category_panel:main"
+single-card = "budget_planner.summary_card:main"
 
 [build-system]
 requires = ["uv_build>=0.12.10,<0.13.0"]
