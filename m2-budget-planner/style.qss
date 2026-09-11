@@ -1,0 +1,134 @@
+/* style.qss — Monthly Budget Planner
+   Clean, modern, self-contained stylesheet (no external image assets). */
+
+/* ---- Application background ---- */
+QWidget {
+    background-color: #f4f6f8;
+    color: #2b2f33;
+    font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    font-size: 10.5pt;
+}
+
+/* ---- Category panels ---- */
+BudgetCategoryPanel {
+    background-color: #ffffff;
+    border: 1px solid #d6dbe1;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+BudgetCategoryPanel QLabel {
+    background: transparent;
+    font-weight: 600;
+    color: #1f2a37;
+}
+
+/* ---- Summary cards ---- */
+BudgetSummaryCard {
+    background-color: #eef3fb;
+    border: 1px solid #c3d3ea;
+    border-radius: 10px;
+    padding: 8px 14px;
+}
+
+BudgetSummaryCard QLabel {
+    background: transparent;
+    border: none;
+}
+
+/* ---- Labels ---- */
+QLabel {
+    background: transparent;
+    color: #2b2f33;
+}
+
+/* ---- Line edits ---- */
+QLineEdit {
+    background-color: #ffffff;
+    border: 1px solid #c7ccd3;
+    border-radius: 6px;
+    padding: 4px 8px;
+    selection-background-color: #4a90d9;
+    selection-color: #ffffff;
+}
+
+QLineEdit:focus {
+    border: 1px solid #4a90d9;
+}
+
+QLineEdit:disabled {
+    background-color: #eceef1;
+    color: #9aa1a9;
+}
+
+/* ---- Combo boxes ---- */
+QComboBox {
+    background-color: #ffffff;
+    border: 1px solid #c7ccd3;
+    border-radius: 6px;
+    padding: 4px 8px;
+    min-width: 6em;
+}
+
+QComboBox:hover {
+    border: 1px solid #4a90d9;
+}
+
+QComboBox::drop-down {
+    border: none;
+    width: 22px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #ffffff;
+    border: 1px solid #c7ccd3;
+    outline: none;
+    selection-background-color: #4a90d9;
+    selection-color: #ffffff;
+}
+
+/* ---- Checkboxes ---- */
+QCheckBox {
+    spacing: 8px;
+    background: transparent;
+}
+
+QCheckBox::indicator {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #c7ccd3;
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+QCheckBox::indicator:hover {
+    border: 1px solid #4a90d9;
+}
+
+QCheckBox::indicator:checked {
+    background-color: #4a90d9;
+    border: 1px solid #3578bd;
+}
+
+/* ---- Buttons ---- */
+QPushButton {
+    background-color: #4a90d9;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-weight: 600;
+}
+
+QPushButton:hover {
+    background-color: #3578bd;
+}
+
+QPushButton:pressed {
+    background-color: #2c649f;
+}
+
+QPushButton:disabled {
+    background-color: #b9c4d1;
+    color: #eef1f4;
+}

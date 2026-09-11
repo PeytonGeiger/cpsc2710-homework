@@ -1,4 +1,5 @@
 import sys
+from pathlib import Path
 from PySide6.QtWidgets import *
 from budget_planner.budget_category_panel import BudgetCategoryPanel
 from budget_planner.summary_card import BudgetSummaryCard
@@ -52,7 +53,12 @@ class BudgetPlannerWindow(QWidget):
         except ValueError:
             pass
 def main():
-    app =QApplication(sys.argv)
+    app = QApplication(sys.argv)
+
+    style_path = Path(__file__).resolve().parent.parent.parent / "style.qss"
+    if style_path.exists():
+        app.setStyleSheet(style_path.read_text())
+
     window = BudgetPlannerWindow()
     window.show()
     sys.exit(app.exec())
